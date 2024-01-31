@@ -28,7 +28,6 @@ carou-scroll > * {
 	min-width: 100%;
 	aspect-ratio: 16/9;
 }
-</style>
 ```
 
 ## HTML
