@@ -14,7 +14,7 @@
 			max-width: 700px;
 			margin: 0 auto;
 		}
-		.demo-carousel-btns {
+		.demo-carousel-meta {
 			display: flex;
 			justify-content: space-between;
 			padding: .5em 0;
@@ -82,7 +82,7 @@
 					<div class="demo-slide">9</div>
 					<div class="demo-slide">10</div>
 				</carou-scroll>
-				<div class="demo-carousel-btns">
+				<div class="demo-carousel-meta">
 					<button type="button" disabled data-carousel-previous="demo-btn">&lt; Previous</button>
 					<button type="button" disabled data-carousel-next="demo-btn">Next &gt;</button>
 				</div>
@@ -101,10 +101,35 @@
 					<div class="demo-slide">9</div>
 					<div class="demo-slide">10</div>
 				</carou-scroll>
-				<div class="demo-carousel-btns">
+				<div class="demo-carousel-meta">
 					<!-- JS only buttons -->
 					<button type="button" disabled data-carousel-previous="demo-btn-loop">&lt; Previous</button>
 					<button type="button" disabled data-carousel-next="demo-btn-loop">Next &gt;</button>
+				</div>
+			</div>
+			<h3>Current Slide Output</h3>
+			<style>
+			#demo-announce + .demo-carousel-meta button {
+				min-width: 6em;
+			}
+			</style>
+			<div class="demo-carousel">
+				<carou-scroll id="demo-announce">
+					<div class="demo-slide">1</div>
+					<div class="demo-slide">2</div>
+					<div class="demo-slide">3</div>
+					<div class="demo-slide">4</div>
+					<div class="demo-slide">5</div>
+					<div class="demo-slide">6</div>
+					<div class="demo-slide">7</div>
+					<div class="demo-slide">8</div>
+					<div class="demo-slide">9</div>
+					<div class="demo-slide">10</div>
+				</carou-scroll>
+				<div class="demo-carousel-meta">
+					<button type="button" disabled data-carousel-previous="demo-announce">&lt; Previous</button>
+					<output data-carousel-output="demo-announce"></output>
+					<button type="button" disabled data-carousel-next="demo-announce">Next &gt;</button>
 				</div>
 			</div>
 			<h3>Full control of button styles and placement</h3>
@@ -152,7 +177,7 @@
 					<div class="demo-slide">9</div>
 					<div class="demo-slide">10</div>
 				</carou-scroll>
-				<div class="demo-carousel-btns">
+				<div class="demo-carousel-meta">
 					<!-- JS only buttons -->
 					<button type="button" disabled data-carousel-previous="demo-smooth">&lt; Previous</button>
 					<button type="button" disabled data-carousel-next="demo-smooth">Next &gt;</button>
@@ -178,7 +203,7 @@
 					<div class="demo-slide">9</div>
 					<div class="demo-slide">10</div>
 				</carou-scroll>
-				<div class="demo-carousel-btns">
+				<div class="demo-carousel-meta">
 					<!-- JS only buttons -->
 					<a href="#demo-link" disabled data-carousel-previous="demo-link">&lt; Previous</button>
 					<a href="#demo-link" disabled data-carousel-next="demo-link">Next &gt;</button>

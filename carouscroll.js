@@ -14,6 +14,7 @@ class Carouscroll extends HTMLElement {
 		disabled: "disabled",
 		prev: "data-carousel-previous",
 		next: "data-carousel-next",
+		output: "data-carousel-output",
 	};
 
 	static classes = {
@@ -52,10 +53,14 @@ class Carouscroll extends HTMLElement {
 		this.slides = this.content.children;
 
 		this.initializeButtons();
-		this.disablePrevNextButtons(this.findActivePage());
+		this.initializeOutput();
+
+		let activePage = this.findActivePage();
+		this.renderMetadata(activePage);
+
 		/* Missing on Safari */
 		this.content.addEventListener("scrollend", e => {
-			this.disablePrevNextButtons(this.findActivePage());
+			this.renderMetadata(this.findActivePage());
 		});
 	}
 
@@ -76,6 +81,33 @@ class Carouscroll extends HTMLElement {
 			this._buttonClick("next");
 			e.preventDefault();
 		}, false);
+	}
+
+	initializeOutput() {
+		this.output = document.querySelector(`[${Carouscroll.attr.output}="${this.id}"]`);
+		// https://www.w3.org/WAI/tutorials/carousels/functionality/
+		this.output.setAttribute("aria-live", "polite");
+		this.output.setAttribute("aria-atomic", "true");
+	}
+
+	renderOutput(activePage) {
+		if(!this.output) {
+			return;
+		}
+
+		this.output.innerText = `${this.findIndexForPage(activePage)} of ${this.content.children.length}`;
+	}
+
+	findIndexForPage(page) {
+		let j = 0;
+		for(let child of this.content.children) {
+			j++;
+
+			if(page === child) {
+				return j;
+			}
+		}
+		return -1;
 	}
 
 	findActivePage() {
@@ -102,6 +134,11 @@ class Carouscroll extends HTMLElement {
 
 	isLooping() {
 		return this.hasAttribute("loop");
+	}
+
+	renderMetadata(page) {
+		this.renderOutput(page);
+		this.disablePrevNextButtons(page);
 	}
 
 	disablePrevNextButtons(moveToPage) {
@@ -134,7 +171,7 @@ class Carouscroll extends HTMLElement {
 		const carouselOffsetLeft = this.content.offsetLeft;
 
 		this.content.scrollLeft = slideOffsetLeft - carouselOffsetLeft;
-		this.disablePrevNextButtons(this.slides[index]);
+		this.renderMetadata(this.slides[index]);
 	}
 
 	_buttonClick(direction) {
@@ -160,7 +197,7 @@ class Carouscroll extends HTMLElement {
 				let newScrollPosition = moveToPage.offsetLeft + moveToPage.offsetWidth / 2 - document.body.clientWidth / 2;
 				this.content.scrollLeft = newScrollPosition;
 
-				this.disablePrevNextButtons(moveToPage);
+				this.renderMetadata(moveToPage);
 			}
 		}
 	}
