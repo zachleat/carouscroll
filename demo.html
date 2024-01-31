@@ -17,7 +17,7 @@
 		.demo-carousel-btns {
 			display: flex;
 			justify-content: space-between;
-			padding: .5em 0 0;
+			padding: .5em 0;
 		}
 		.demo-slide {
 			display: flex;
@@ -27,10 +27,6 @@
 			background: #ddd;
 			border: 1px solid;
 			box-sizing: border-box;
-		}
-		a[href][disabled] {
-			pointer-events: none;
-			color: #ddd;
 		}
 		</style>
 
@@ -72,7 +68,7 @@
 					<div class="demo-slide">10</div>
 				</carou-scroll>
 			</div>
-			<h2>Next/Previous</h2>
+			<h2>Next/Previous Buttons</h2>
 			<div class="demo-carousel">
 				<carou-scroll id="demo-btn">
 					<div class="demo-slide">1</div>
@@ -91,7 +87,7 @@
 					<button type="button" disabled data-carousel-next="demo-btn">Next &gt;</button>
 				</div>
 			</div>
-			<h3>Buttons will Loop around</h3>
+			<h3>Looping</h3>
 			<div class="demo-carousel">
 				<carou-scroll id="demo-btn-loop" loop>
 					<div class="demo-slide">1</div>
@@ -111,7 +107,64 @@
 					<button type="button" disabled data-carousel-next="demo-btn-loop">Next &gt;</button>
 				</div>
 			</div>
-			<h3>Links</h3>
+			<h3>Full control of button styles and placement</h3>
+			<style>
+			.demo-carousel-inline {
+				display: flex;
+			}
+			.demo-carousel-inline carou-scroll {
+				flex-grow: 1;
+			}
+			.demo-carousel-inline button {
+				background-color: transparent;
+				border: none;
+				font-size: 2em;
+				font-weight: bold;
+			}
+			</style>
+			<div class="demo-carousel demo-carousel-inline">
+				<button type="button" disabled data-carousel-previous="demo-btn-inline">&lt;</button>
+				<carou-scroll id="demo-btn-inline">
+					<div class="demo-slide">1</div>
+					<div class="demo-slide">2</div>
+					<div class="demo-slide">3</div>
+					<div class="demo-slide">4</div>
+					<div class="demo-slide">5</div>
+					<div class="demo-slide">6</div>
+					<div class="demo-slide">7</div>
+					<div class="demo-slide">8</div>
+					<div class="demo-slide">9</div>
+					<div class="demo-slide">10</div>
+				</carou-scroll>
+				<button type="button" disabled data-carousel-next="demo-btn-inline">&gt;</button>
+			</div>
+			<h3>Smooth scroll on Button Navigation</h3>
+			<div class="demo-carousel">
+				<carou-scroll id="demo-smooth" loop style="scroll-behavior: smooth;">
+					<div class="demo-slide">1</div>
+					<div class="demo-slide">2</div>
+					<div class="demo-slide">3</div>
+					<div class="demo-slide">4</div>
+					<div class="demo-slide">5</div>
+					<div class="demo-slide">6</div>
+					<div class="demo-slide">7</div>
+					<div class="demo-slide">8</div>
+					<div class="demo-slide">9</div>
+					<div class="demo-slide">10</div>
+				</carou-scroll>
+				<div class="demo-carousel-btns">
+					<!-- JS only buttons -->
+					<button type="button" disabled data-carousel-previous="demo-smooth">&lt; Previous</button>
+					<button type="button" disabled data-carousel-next="demo-smooth">Next &gt;</button>
+				</div>
+			</div>
+			<h3>Links instead of Buttons</h3>
+			<style>
+			a[href][disabled] {
+				pointer-events: none;
+				color: #ddd;
+			}
+			</style>
 			<div class="demo-carousel">
 				<carou-scroll id="demo-link">
 					<div class="demo-slide">1</div>
