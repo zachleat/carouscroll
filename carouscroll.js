@@ -53,6 +53,10 @@ class Carouscroll extends HTMLElement {
 
 		this.initializeButtons();
 		this.disablePrevNextButtons(this.findActivePage());
+		/* Missing on Safari */
+		this.content.addEventListener("scrollend", e => {
+			this.disablePrevNextButtons(this.findActivePage());
+		});
 	}
 
 	get id() {
