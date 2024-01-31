@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<title>&lt;carou-scroll&gt; Web Component</title>
+		<style>
+		/* Demo styles */
+		body {
+			font-family: system-ui, sans-serif;
+		}
+		.demo-carousel {
+			max-width: 700px;
+			margin: 0 auto;
+		}
+		.demo-carousel-btns {
+			display: flex;
+			justify-content: space-between;
+			padding: .5em 0 0;
+		}
+		.demo-slide {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 2em;
+			background: #ddd;
+			border: 1px solid;
+			box-sizing: border-box;
+		}
+		a[href][disabled] {
+			pointer-events: none;
+			color: #ddd;
+		}
+		</style>
+
+		<style>
+		/* CSS to reduce CLS */
+		carou-scroll {
+			display: flex;
+			overflow-x: scroll;
+			overflow-y: hidden;
+			/* If you want the next/previous buttons to smooth scroll */
+			/* scroll-behavior: smooth; */
+		}
+		carou-scroll > * {
+			display: block;
+			min-width: 100%;
+			aspect-ratio: 16/9;
+		}
+		</style>
+		<script type="module" src="carouscroll.js"></script>
+	</head>
+	<body>
+		<header>
+			<h1>&lt;carou-scroll&gt;  Web Component</h1>
+		</header>
+		<main>
+			<h2>Stock</h2>
+			<div class="demo-carousel">
+				<carou-scroll id="demo-1">
+					<div class="demo-slide">1</div>
+					<div class="demo-slide">2</div>
+					<div class="demo-slide">3</div>
+					<div class="demo-slide">4</div>
+					<div class="demo-slide">5</div>
+					<div class="demo-slide">6</div>
+					<div class="demo-slide">7</div>
+					<div class="demo-slide">8</div>
+					<div class="demo-slide">9</div>
+					<div class="demo-slide">10</div>
+				</carou-scroll>
+			</div>
+			<h2>Next/Previous</h2>
+			<div class="demo-carousel">
+				<carou-scroll id="demo-btn">
+					<div class="demo-slide">1</div>
+					<div class="demo-slide">2</div>
+					<div class="demo-slide">3</div>
+					<div class="demo-slide">4</div>
+					<div class="demo-slide">5</div>
+					<div class="demo-slide">6</div>
+					<div class="demo-slide">7</div>
+					<div class="demo-slide">8</div>
+					<div class="demo-slide">9</div>
+					<div class="demo-slide">10</div>
+				</carou-scroll>
+				<div class="demo-carousel-btns">
+					<button type="button" disabled data-carousel-previous="demo-btn">&lt; Previous</button>
+					<button type="button" disabled data-carousel-next="demo-btn">Next &gt;</button>
+				</div>
+			</div>
+			<h3>Buttons will Loop around</h3>
+			<div class="demo-carousel">
+				<carou-scroll id="demo-btn-loop" loop>
+					<div class="demo-slide">1</div>
+					<div class="demo-slide">2</div>
+					<div class="demo-slide">3</div>
+					<div class="demo-slide">4</div>
+					<div class="demo-slide">5</div>
+					<div class="demo-slide">6</div>
+					<div class="demo-slide">7</div>
+					<div class="demo-slide">8</div>
+					<div class="demo-slide">9</div>
+					<div class="demo-slide">10</div>
+				</carou-scroll>
+				<div class="demo-carousel-btns">
+					<!-- JS only buttons -->
+					<button type="button" disabled data-carousel-previous="demo-btn-loop">&lt; Previous</button>
+					<button type="button" disabled data-carousel-next="demo-btn-loop">Next &gt;</button>
+				</div>
+			</div>
+			<h3>Links</h3>
+			<div class="demo-carousel">
+				<carou-scroll id="demo-link">
+					<div class="demo-slide">1</div>
+					<div class="demo-slide">2</div>
+					<div class="demo-slide">3</div>
+					<div class="demo-slide">4</div>
+					<div class="demo-slide">5</div>
+					<div class="demo-slide">6</div>
+					<div class="demo-slide">7</div>
+					<div class="demo-slide">8</div>
+					<div class="demo-slide">9</div>
+					<div class="demo-slide">10</div>
+				</carou-scroll>
+				<div class="demo-carousel-btns">
+					<!-- JS only buttons -->
+					<a href="#demo-link" disabled data-carousel-previous="demo-link">&lt; Previous</button>
+					<a href="#demo-link" disabled data-carousel-next="demo-link">Next &gt;</button>
+				</div>
+			</div>
+		</main>
+	</body>
+</html>

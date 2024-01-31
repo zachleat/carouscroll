@@ -1,0 +1,26 @@
+{
+  "name": "@zachleat/carouscroll",
+  "version": "1.0.0",
+  "description": "Add next/previous buttons to a scrollable container.",
+  "main": "carouscroll.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "start": "npx http-server ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zachleat/carouscroll.git"
+  },
+  "author": {
+    "name": "Zach Leatherman",
+    "email": "zachleatherman@gmail.com",
+    "url": "https://zachleat.com/"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zachleat/carouscroll/issues"
+  },
+  "homepage": "https://github.com/zachleat/carouscroll#readme"
+}
