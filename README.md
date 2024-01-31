@@ -39,5 +39,5 @@ carou-scroll > * {
 	<!-- … -->
 </carou-scroll>
 <button type="button" disabled data-carousel-previous="my-scroller">Previous</button>
-<button type="button" disabled data-carousel-previous="my-scroller">Next</button>
+<button type="button" disabled data-carousel-next="my-scroller">Next</button>
 ```
