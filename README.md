@@ -38,6 +38,17 @@ carou-scroll > * {
 	<div class="demo-slide">2</div>
 	<!-- … -->
 </carou-scroll>
+```
+
+### Add buttons (optional)
+
+html```
 <button type="button" disabled data-carousel-previous="my-scroller">Previous</button>
 <button type="button" disabled data-carousel-next="my-scroller">Next</button>
+```
+
+### Add output (optional)
+
+html```
+<output data-carousel-output="my-scroller"></output>
 ```
