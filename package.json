@@ -1,7 +1,7 @@
 {
   "name": "@zachleat/carouscroll",
   "version": "1.0.0",
-  "description": "Add next/previous buttons to a scrollable container.",
+  "description": "Add next/previous buttons to a horizontal scrollable container.",
   "main": "carouscroll.js",
   "publishConfig": {
     "access": "public"
