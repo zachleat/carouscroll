@@ -86,8 +86,8 @@ class Carouscroll extends HTMLElement {
 	initializeOutput() {
 		this.output = document.querySelector(`[${Carouscroll.attr.output}="${this.id}"]`);
 		// https://www.w3.org/WAI/tutorials/carousels/functionality/
-		this.output.setAttribute("aria-live", "polite");
-		this.output.setAttribute("aria-atomic", "true");
+		this.output?.setAttribute("aria-live", "polite");
+		this.output?.setAttribute("aria-atomic", "true");
 	}
 
 	renderOutput(activePage) {
