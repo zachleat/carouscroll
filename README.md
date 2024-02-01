@@ -4,7 +4,7 @@ A web component to add next/previous buttons to a horizontal scrollable containe
 
 ## Install
 
-```
+```shell
 npm install @zachleat/carouscroll --save
 ```
 
@@ -42,13 +42,13 @@ carou-scroll > * {
 
 ### Add buttons (optional)
 
-html```
+```html
 <button type="button" disabled data-carousel-previous="my-scroller">Previous</button>
 <button type="button" disabled data-carousel-next="my-scroller">Next</button>
 ```
 
 ### Add output (optional)
 
-html```
+```html
 <output data-carousel-output="my-scroller"></output>
 ```
