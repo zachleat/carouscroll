@@ -2,7 +2,11 @@
 
 A web component to add next/previous buttons to a horizontal scrollable container.
 
-## Install
+* [Demos](https://zachleat.github.io/carouscroll/demo.html)
+
+## Installation
+
+You can install via `npm` or download the `carouscroll.js` JavaScript file manually.
 
 ```shell
 npm install @zachleat/carouscroll --save
@@ -10,18 +14,15 @@ npm install @zachleat/carouscroll --save
 
 Add `carouscroll.js` to your site’s JavaScript assets.
 
-## CSS
+## Usage
 
-Some critical CSS is necessary to reduce Layout Shift and set the aspect ratio of the slides.
+First you need to add some critical CSS to your page. These styles are **crucial** to reduce Layout Shift (CLS), set the aspect ratio of the slides, and avoid loading `loading="lazy"` images on off-screen slides.
 
 ```css
-/* CSS to reduce CLS */
 carou-scroll {
 	display: flex;
 	overflow-x: scroll;
 	overflow-y: hidden;
-	/* If you want the next/previous buttons to smooth scroll */
-	/* scroll-behavior: smooth; */
 }
 carou-scroll > * {
 	display: block;
@@ -30,7 +31,7 @@ carou-scroll > * {
 }
 ```
 
-## HTML
+Next, add the HTML:
 
 ```html
 <carou-scroll id="my-scroller">
@@ -39,6 +40,8 @@ carou-scroll > * {
 	<!-- … -->
 </carou-scroll>
 ```
+
+That’s it!
 
 ### Add buttons (optional)
 
@@ -49,6 +52,24 @@ carou-scroll > * {
 
 ### Add output (optional)
 
+This will update (and accessibly announce) a current status element with e.g. `Slide 1 of 10` text.
+
 ```html
 <output data-carousel-output="my-scroller"></output>
+```
+
+### Make it loop around (optional)
+
+Add the `loop` attribute.
+
+```html
+<carou-scroll id="my-scroller" loop>
+```
+
+### Smooth scrolling CSS (optional)
+
+```css
+carou-scroll {
+	scroll-behavior: smooth;
+}
 ```
