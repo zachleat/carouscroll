@@ -58,10 +58,15 @@ class Carouscroll extends HTMLElement {
 		let activePage = this.findActivePage();
 		this.renderMetadata(activePage);
 
-		/* Missing on Safari */
-		this.content.addEventListener("scrollend", e => {
+		/* Manual scrolling */
+		/* Note: `scrollend` missing on Safari */
+		this.content.addEventListener("scrollend", () => {
 			this.renderMetadata(this.findActivePage());
 		});
+		// Manual touch scroll
+		this.content.addEventListener("touchend", () => {
+			this.renderMetadata(this.findActivePage());
+		})
 	}
 
 	get id() {
