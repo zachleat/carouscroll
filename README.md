@@ -4,6 +4,15 @@ A web component to add next/previous buttons to a horizontal scrollable containe
 
 * [Demos](https://zachleat.github.io/carouscroll/demo.html)
 
+## Features
+
+* No layout shift (use the CSS snippet!).
+* Add a `loop` attribute to enable looping around from start/end.
+* Opt-in to smooth scrolling with `scroll-behavior: smooth`.
+* Optional buttons can be placed anywhere in the document.
+* Optional `<output>` element can accessibly announce the current slide number (out of total number of slides).
+* Interaction compatible with scroll or touch.
+
 ## Installation
 
 You can install via `npm` or download the `carouscroll.js` JavaScript file manually.
@@ -16,7 +25,7 @@ Add `carouscroll.js` to your site’s JavaScript assets.
 
 ## Usage
 
-First you need to add some critical CSS to your page. These styles are **crucial** to reduce Layout Shift (CLS), set the aspect ratio of the slides, and avoid loading `loading="lazy"` images on off-screen slides.
+First you need to add some critical CSS to your page. These styles are **crucial** to reduce Layout Shift (CLS), set the aspect ratio of the slides, and to avoid loading `loading="lazy"` images on off-screen slides.
 
 ```css
 carou-scroll {
