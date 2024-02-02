@@ -34,7 +34,6 @@ carou-scroll {
 	overflow-y: hidden;
 }
 carou-scroll > * {
-	display: block;
 	min-width: 100%;
 	aspect-ratio: 16/9;
 }

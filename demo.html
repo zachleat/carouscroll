@@ -10,6 +10,13 @@
 		body {
 			font-family: system-ui, sans-serif;
 		}
+		/* See https://www.zachleat.com/web/fluid-images/#content-layout-shift-addendum */
+		img {
+			display: block;
+			max-width: 100%;
+			height: auto;
+		}
+
 		.demo-carousel {
 			max-width: 700px;
 			margin: 0 auto;
@@ -23,6 +30,7 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
+			height: 100%;
 			font-size: 2em;
 			background: #ddd;
 			border: 1px solid;
@@ -31,16 +39,12 @@
 		</style>
 
 		<style>
-		/* CSS to reduce CLS */
 		carou-scroll {
 			display: flex;
 			overflow-x: scroll;
 			overflow-y: hidden;
-			/* If you want the next/previous buttons to smooth scroll */
-			/* scroll-behavior: smooth; */
 		}
 		carou-scroll > * {
-			display: block;
 			min-width: 100%;
 			aspect-ratio: 16/9;
 		}
@@ -54,18 +58,20 @@
 		<main>
 			<p><a href="https://github.com/zachleat/carouscroll">Back to the Source Code</a></p>
 			<h2>Stock</h2>
+			<p>This one includes a variety of child element types including <code>&lt;img&gt;</code> and <code>&lt;picture&gt;</code>. Note that the images are not loaded until you begin to scroll horizontally (when the browser supports <code>loading="lazy"</code>).</p>
 			<div class="demo-carousel">
 				<carou-scroll id="demo-1">
 					<div class="demo-slide">1</div>
-					<div class="demo-slide">2</div>
-					<div class="demo-slide">3</div>
-					<div class="demo-slide"><p>4</p></div>
-					<div class="demo-slide">5</div>
-					<div class="demo-slide">6</div>
-					<div class="demo-slide">7</div>
-					<div class="demo-slide">8</div>
-					<div class="demo-slide">9</div>
-					<div class="demo-slide">10</div>
+					<span class="demo-slide">2</span>
+					<b class="demo-slide">3</b>
+					<em class="demo-slide">4</em>
+					<img class="demo-slide" src="assets/test.png" width="800" height="450" alt="800×450 sample image" loading="lazy">
+					<span class="demo-slide"><p>6</p></span>
+					<span class="demo-slide">7</span>
+					<span class="demo-slide">8</span>
+					<span class="demo-slide">9</span>
+					<picture class="demo-slide"><img src="assets/test.png" width="800" height="450" alt="800×450 sample image" loading="lazy"></picture>
+					<span class="demo-slide">10</span>
 				</carou-scroll>
 			</div>
 			<h2>Next/Previous Buttons</h2>
