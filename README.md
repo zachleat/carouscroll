@@ -6,12 +6,12 @@ A web component to add next/previous buttons to a horizontal scrollable containe
 
 ## Features
 
-* No layout shift (use the CSS snippet!).
-* Add a `loop` attribute to enable looping around from start/end.
-* Opt-in to smooth scrolling with `scroll-behavior: smooth`.
-* Optional buttons can be placed anywhere in the document.
-* Optional `<output>` element can accessibly announce the current slide number (out of total number of slides).
 * Interaction compatible with scroll or touch.
+* No layout shift. Make sure you include the CSS snippet!
+* (Optional) Smooth scrolling with `scroll-behavior: smooth`.
+* (Optional) `loop` attribute to enable looping around from start/end.
+* (Optional) Next/Previous buttons can be placed anywhere in the document.
+* (Optional) `<output>` element can accessibly announce the current slide number (out of total number of slides).
 
 ## Installation
 
