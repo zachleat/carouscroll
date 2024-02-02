@@ -54,6 +54,8 @@ That’s it!
 
 ### Add buttons (optional)
 
+Make sure you think about the before/after JavaScript experience here. This component will remove `disabled` for you but you can add additional styling via your own CSS: `carou-scroll:defined {}`.
+
 ```html
 <button type="button" disabled data-carousel-previous="my-scroller">Previous</button>
 <button type="button" disabled data-carousel-next="my-scroller">Next</button>
