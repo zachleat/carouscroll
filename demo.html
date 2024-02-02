@@ -59,7 +59,7 @@
 					<div class="demo-slide">1</div>
 					<div class="demo-slide">2</div>
 					<div class="demo-slide">3</div>
-					<div class="demo-slide">4</div>
+					<div class="demo-slide"><p>4</p></div>
 					<div class="demo-slide">5</div>
 					<div class="demo-slide">6</div>
 					<div class="demo-slide">7</div>
@@ -207,6 +207,35 @@
 					<!-- JS only buttons -->
 					<a href="#demo-link" disabled data-carousel-previous="demo-link">&lt; Previous</a>
 					<a href="#demo-link" disabled data-carousel-next="demo-link">Next &gt;</a>
+				</div>
+			</div>
+			<h3>Manual Scroll Snap CSS</h3>
+			<p>Useful if you want scroll snapping to be available before or without JavaScript.</p>
+			<style>
+			#demo-snap {
+				scroll-snap-type: x mandatory;
+			}
+			#demo-snap > * {
+				scroll-snap-align: center;
+			}
+			</style>
+			<div class="demo-carousel">
+				<carou-scroll id="demo-snap">
+					<div class="demo-slide">1</div>
+					<div class="demo-slide">2</div>
+					<div class="demo-slide">3</div>
+					<div class="demo-slide">4</div>
+					<div class="demo-slide">5</div>
+					<div class="demo-slide">6</div>
+					<div class="demo-slide">7</div>
+					<div class="demo-slide">8</div>
+					<div class="demo-slide">9</div>
+					<div class="demo-slide">10</div>
+				</carou-scroll>
+				<div class="demo-carousel-meta">
+					<!-- JS only buttons -->
+					<button disabled data-carousel-previous="demo-snap">&lt; Previous</button>
+					<button disabled data-carousel-next="demo-snap">Next &gt;</button>
 				</div>
 			</div>
 		</main>

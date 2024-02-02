@@ -88,3 +88,14 @@ carou-scroll {
 	scroll-behavior: smooth;
 }
 ```
+
+### Add your own scroll snap CSS (optional)
+
+```css
+carou-scroll {
+	scroll-snap-type: x mandatory;
+}
+carou-scroll > * {
+	scroll-snap-align: center;
+}
+```
