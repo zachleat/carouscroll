@@ -15,6 +15,8 @@ class Carouscroll extends HTMLElement {
 		prev: "data-carousel-previous",
 		next: "data-carousel-next",
 		output: "data-carousel-output",
+		outputCurrent: "data-carousel-output-current",
+		outputTotal: "data-carousel-output-total",
 	};
 
 	static classes = {
@@ -89,18 +91,32 @@ class Carouscroll extends HTMLElement {
 	}
 
 	initializeOutput() {
-		this.output = document.querySelector(`[${Carouscroll.attr.output}="${this.id}"]`);
-		// https://www.w3.org/WAI/tutorials/carousels/functionality/
-		this.output?.setAttribute("aria-live", "polite");
-		this.output?.setAttribute("aria-atomic", "true");
-	}
-
-	renderOutput(activePage) {
-		if(!this.output) {
+		let output = document.querySelector(`[${Carouscroll.attr.output}="${this.id}"]`);
+		if(!output) {
 			return;
 		}
 
-		this.output.innerText = `${this.findIndexForPage(activePage)} of ${this.content.children.length}`;
+		this.output = output;
+
+		if(output.childElementCount === 0) {
+			output.innerHTML = `<span ${Carouscroll.attr.outputCurrent}></span> of <span ${Carouscroll.attr.outputTotal}></span>`;
+		}
+
+		this.outputCurrent = output.querySelector(`[${Carouscroll.attr.outputCurrent}]`);
+		this.outputTotal = output.querySelector(`[${Carouscroll.attr.outputTotal}]`);
+
+		// https://www.w3.org/WAI/tutorials/carousels/functionality/
+		output.setAttribute("aria-live", "polite");
+		output.setAttribute("aria-atomic", "true");
+	}
+
+	renderOutput(activePage) {
+		if(!this.outputCurrent || !this.outputTotal) {
+			return;
+		}
+
+		this.outputCurrent.innerText = this.findIndexForPage(activePage);
+		this.outputTotal.innerText = this.content.children.length;
 	}
 
 	findIndexForPage(page) {
