@@ -27,6 +27,7 @@ class Carouscroll extends HTMLElement {
 	display: flex;
 	overflow-x: scroll;
 	overflow-y: hidden;
+ 	overscroll-behavior-x: contain;
 	scroll-snap-type: x mandatory;
 }
 ::slotted(*) {
