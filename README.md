@@ -15,7 +15,7 @@ A web component to add next/previous buttons to a horizontal scrollable containe
 
 ## Installation
 
-You can install via `npm` or download the `carouscroll.js` JavaScript file manually.
+You can install via `npm` ([`@zachleat/carouscroll`](https://www.npmjs.com/package/@zachleat/carouscroll)) or download the `carouscroll.js` JavaScript file manually.
 
 ```shell
 npm install @zachleat/carouscroll --save
