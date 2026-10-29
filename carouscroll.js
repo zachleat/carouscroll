@@ -77,17 +77,15 @@ class Carouscroll extends HTMLElement {
 	}
 
 	initializeButtons() {
-		this.nextButton = document.querySelector(`[${Carouscroll.attr.next}="${this.id}"]`);
-		this.prevButton = document.querySelector(`[${Carouscroll.attr.prev}="${this.id}"]`);
+		this.nextButton = document.querySelector(`button[${Carouscroll.attr.next}="${this.id}"]`);
+		this.prevButton = document.querySelector(`button[${Carouscroll.attr.prev}="${this.id}"]`);
 
 		this.prevButton?.addEventListener("click", e => {
 			this._buttonClick("previous");
-			e.preventDefault();
 		}, false);
 
 		this.nextButton?.addEventListener("click", e => {
 			this._buttonClick("next");
-			e.preventDefault();
 		}, false);
 	}
 
