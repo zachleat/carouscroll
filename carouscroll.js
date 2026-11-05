@@ -132,19 +132,20 @@ class Carouscroll extends HTMLElement {
 		return -1;
 	}
 
+	// Slide position within the scrollable content, independent of where the carousel sits on the page.
+	getSlideStart(slide) {
+		return slide.getBoundingClientRect().left - this.content.getBoundingClientRect().left - this.content.clientLeft + this.content.scrollLeft;
+	}
+
 	findActivePage() {
 		let activePage;
-		let scrollPosition = this.content.scrollLeft;
+		let scrollMidpoint = this.content.scrollLeft + this.content.clientWidth / 2;
 
 		for(let child of this.content.children) {
 			activePage = child;
 
-			// start of active page must be before center of window
-			// end of active page must be after center of window
-			let start = child.offsetLeft;
+			let start = this.getSlideStart(child);
 			let end = start + child.offsetWidth;
-
-			let scrollMidpoint = scrollPosition + this.content.offsetLeft + this.content.offsetWidth / 2;
 
 			if(start <= scrollMidpoint && end >= scrollMidpoint) {
 				break;
@@ -186,13 +187,7 @@ class Carouscroll extends HTMLElement {
 	}
 
 	_goToSlide(index) {
-		const slideOffsetLeft = this.slides[index].offsetLeft;
-
-		// In case the carousel is used in a grid system and isn’t full width,
-		// we need the carousel position to not over scroll the slide.
-		const carouselOffsetLeft = this.content.offsetLeft;
-
-		this.content.scrollLeft = slideOffsetLeft - carouselOffsetLeft;
+		this.content.scrollLeft = this.getSlideStart(this.slides[index]);
 		this.renderMetadata(this.slides[index]);
 	}
 
@@ -211,13 +206,12 @@ class Carouscroll extends HTMLElement {
 						// loop to the beginning
 						this.content.scrollLeft = 0;
 					} else {
-						this.content.scrollLeft = this.content.lastElementChild.offsetLeft;
+						this.content.scrollLeft = this.getSlideStart(this.content.lastElementChild);
 					}
 				}
 			} else if(moveToPage) {
 				// Stop at the end
-				let newScrollPosition = moveToPage.offsetLeft + moveToPage.offsetWidth / 2 - document.body.clientWidth / 2;
-				this.content.scrollLeft = newScrollPosition;
+				this.content.scrollLeft = this.getSlideStart(moveToPage) + moveToPage.offsetWidth / 2 - this.content.clientWidth / 2;
 
 				this.renderMetadata(moveToPage);
 			}
